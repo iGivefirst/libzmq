@@ -89,6 +89,7 @@ void connecting_sock_monitor (void *s, int event_, zmq_event_data_t *data_)
 
 int main (int argc, char *argv [])
 {
+    /*
     int rc;
 
     //  Create the infrastructure
@@ -101,7 +102,9 @@ int main (int argc, char *argv [])
     // Expects failure - invalid size
     zmq_monitor_fn *monitor;
     monitor = listening_sock_monitor;
+    */
 
+    /*
     rc = zmq_setsockopt (rep, ZMQ_MONITOR, *(void **)&monitor, 20);
     assert (rc == -1);
     assert (errno == EINVAL);
@@ -131,7 +134,9 @@ int main (int argc, char *argv [])
     monitor = connecting_sock_monitor;
     rc = zmq_setsockopt (req, ZMQ_MONITOR, *(void **)&monitor, sizeof (void *));
     assert (rc == 0);
+    */
 
+    /*
     rc = zmq_connect (req, "tcp://127.0.0.1:5560");
     assert (rc == 0);
 
@@ -151,5 +156,6 @@ int main (int argc, char *argv [])
     zmq_sleep (1);
 
     zmq_term (ctx);
+    */
     return 0 ;
 }

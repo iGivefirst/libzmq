@@ -315,6 +315,7 @@ int zmq::options_t::setsockopt (int option_, const void *optval_,
             }
         }
 
+        /*
     case ZMQ_MONITOR:
         {
             if (optvallen_ == 0 && optval_ == NULL) {
@@ -325,9 +326,10 @@ int zmq::options_t::setsockopt (int option_, const void *optval_,
                 errno = EINVAL;
                 return -1;
             }
+
             monitor = *((zmq_monitor_fn**) &optval_);
             return 0;
-        }
+        }*/
     }
     errno = EINVAL;
     return -1;
@@ -545,6 +547,7 @@ int zmq::options_t::getsockopt (int option_, void *optval_, size_t *optvallen_)
         *optvallen_ = last_endpoint.size()+1;
         return 0;
 
+        /*
     case ZMQ_MONITOR:
         if (*optvallen_ < sizeof (void *)) {
             errno = EINVAL;
@@ -553,6 +556,7 @@ int zmq::options_t::getsockopt (int option_, void *optval_, size_t *optvallen_)
         *((zmq_monitor_fn**) &optval_) = monitor;
         *optvallen_ = sizeof (zmq_monitor_fn*);
         return 0;
+        */
     }
 
     errno = EINVAL;
